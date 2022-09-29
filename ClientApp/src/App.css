@@ -1,0 +1,170 @@
+.App {
+  height: 100vh;
+  display: flex;
+  color: #A27752;
+}
+
+.appAside {
+  width: 50%;
+  background-color: #006F71;
+}
+
+.appForm {
+  width: 50%;
+  background-color: #12130f;
+  padding: 25px 40px;
+  overflow: auto;
+}
+
+.pageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+}
+
+.pageSwitcherItem {
+  background-color: #21232b;
+  color: #A27752;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.pageSwitcherItem-active {
+  background-color: #006F71;
+  color: #000000;
+}
+
+.pageSwitcherItem:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.pageSwitcherItem:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.formCenter {
+  margin-bottom: 100px;
+}
+
+.formTitle {
+  color: #A27752;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.formTitleLink {
+  color: #A27752;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.7em;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+
+.formTitleLink:first-child {
+  margin-left: 0;
+}
+
+.formTitleLink-active {
+  color: #A27752;
+  border-bottom: 1px solid #006F71;
+}
+
+.formField {
+  margin-bottom: 40px;
+}
+
+.formFieldLabel {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #A27752;
+}
+.formFieldInput {
+  width: 85%;
+  background-color: transparent;
+  border: none;
+  color: #A27752;
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.formFieldInput::placeholder {
+  color: #616e7f;
+}
+
+.formFieldButton {
+  background-color: #006F71;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.formFieldLink {
+  color: #66707d;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1.5px solid #006F71;
+  padding-bottom: 5px;
+}
+
+.formFieldCheckboxLabel {
+  color: #646f7d;
+  font-size: 0.9em;
+}
+
+.formFieldCheckbox {
+  position: relative;
+  top: 1.5px;
+}
+
+.formFieldTermsLink {
+  color: white;
+  border-bottom: 1px solid #006F71;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
+
+.glossy-button {
+  display: inline-block;
+  position: relative;
+  background-color: #AAA;
+  background-image: linear-gradient( /* chrome */
+    hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0) 50%,
+    hsla(0, 0%, 0%, 0.3) 50%, hsla(0, 0%, 100%, 0.2)
+  );
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  padding: 3px 3px;
+  text-shadow:
+    0 0 15px hsla(0, 0%, 100%, 1), /* bloom */
+    0 2px 4px hsla(0, 0%, 0%, 0.7); /* drop shadow */
+  border: none;
+  border-radius: 30px;
+  box-shadow:
+    inset 0 -5px 20px hsla(0, 0%, 0%, 0.4), /* top light */
+    inset 0 5px 20px hsla(0, 0%, 100%, 0.4), /* bottom shadow */
+    /* multiple light sources yall */
+    -8px 8px 5px hsla(0, 0%, 0%, 0.15), /* drop shadow 1 */
+    5px 18px 10px hsla(0, 0%, 0%, 0.2); /* drop shadow 2 */
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.glossy-button--teal { background-color: #006F71; }
