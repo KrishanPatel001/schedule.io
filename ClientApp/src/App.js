@@ -6,10 +6,11 @@ import { Counter } from './components/Counter';
 import SignUpForm from "./components/SignUp";
 import SignInForm from "./components/SignIn";
 import SignIn from "./components/SignInPage";
+import { StudentSchedule } from './components/StudentSchedule';
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 import './custom.css'
-//import "./App.css";
+import "./App.css";
 
 export class App extends Component {
   static displayName = App.name;
@@ -22,6 +23,7 @@ export class App extends Component {
         <Route path='/fetch-data' component={FetchData} />
         <Route path="/sign-up" component={SignUpForm} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/Student-Schedule" component={StudentSchedule} />
       </Layout>
     );
   }

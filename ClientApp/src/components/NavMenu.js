@@ -54,6 +54,13 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
+                    className="text-dark" 
+                    to="/StudentSchedule">Student
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink 
+                    tag={Link} 
                     to="/Sign-in"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem glossy-button glossy-button--teal">
