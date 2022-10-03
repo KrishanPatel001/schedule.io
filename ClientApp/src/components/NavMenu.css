@@ -1,11 +1,13 @@
 ﻿a.navbar-brand {
   white-space: normal;
+  background-color: #006F71;
   text-align: center;
   word-break: break-all;
 }
 
 html {
   font-size: 14px;
+  background-color: #12130f;
 }
 @media (min-width: 768px) {
   html {
@@ -16,4 +18,3 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
-

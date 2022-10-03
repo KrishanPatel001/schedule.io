@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
+import '../App.css';
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -33,30 +34,33 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink
                     tag={Link} 
-                    className="text-dark" 
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem" 
                     to="/">Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink 
                     tag={Link}
-                    className="text-dark" 
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem" 
                     to="/counter">Counter
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    className="text-dark" 
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem" 
                     to="/fetch-data">Fetch data
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    to="/Sign-in"
+                    to="/sign-in#/sign-in"
                     activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem glossy-button glossy-button--teal">
+                    className="pageSwitcherItem">
                     Sign In
                   </NavLink>
                 </NavItem>

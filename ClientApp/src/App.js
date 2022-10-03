@@ -9,7 +9,7 @@ import SignIn from "./components/SignInPage";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 import './custom.css'
-//import "./App.css";
+import "./App.css";
 
 export class App extends Component {
   static displayName = App.name;
