@@ -6,7 +6,7 @@ import { Counter } from './components/Counter';
 import SignUpForm from "./components/SignUp";
 import SignInForm from "./components/SignIn";
 import SignIn from "./components/SignInPage";
-import { StudentSchedule } from './components/StudentSchedule';
+import { StudentSchedule } from './components/StudentPage';
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 import './custom.css'
@@ -23,7 +23,7 @@ export class App extends Component {
         <Route path='/fetch-data' component={FetchData} />
         <Route path="/sign-up" component={SignUpForm} />
         <Route path="/sign-in" component={SignIn} />
-        <Route path="/Student-Schedule" component={StudentSchedule} />
+        <Route path="/Student-page" component={StudentSchedule} />
       </Layout>
     );
   }

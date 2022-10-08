@@ -168,3 +168,13 @@
   transition: transform 0.1s, box-shadow 0.1s;
 }
 .glossy-button--teal { background-color: #006F71; }
+
+.calendar_default_event_inner {
+  background: #2e78d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 10pt;
+  padding: 5px;
+  opacity: 0.8;
+}
