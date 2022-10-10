@@ -29,7 +29,6 @@ class SignUpForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
     console.log(this.state);
   }
 

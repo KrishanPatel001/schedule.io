@@ -17,6 +17,14 @@ class SignInForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
+  }
+
+  handleLogoutClick() {
+    this.setState({isLoggedIn: false});
+  }
+
   handleChange(event) {
     let target = event.target;
     let value = target.type === "checkbox" ? target.checked : target.value;
@@ -30,48 +38,46 @@ class SignInForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
+    console.log("Username: " + this.state.email);
+    console.log("Password: " + this.state.password);
   }
 
   render() {
     return (
       <div className="formCenter">
         <form className="formFields" onSubmit={this.handleSubmit}>
-                <label className="formFieldLabel" htmlFor="email">
-                  E-Mail Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="formFieldInput"
-                  placeholder="Enter your email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-
-              <div className="formField">
-                <label className="formFieldLabel" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="formFieldInput"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-
-              <div className="formField">
-                <button className="formFieldButton">Sign In</button>{" "}
-                <Link to="../../sign-up" className="formFieldLink">
-                  Create an account
-                </Link>
-              </div>
+          <label className="formFieldLabel" htmlFor="email">
+            E-Mail Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="formFieldInput"
+            placeholder="Enter your email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+          <div className="formField">
+            <label className="formFieldLabel" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="formFieldInput"
+              placeholder="Enter your password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="formField">
+            <button className="formFieldButton">Sign In</button>{" "}
+            <Link to="../../sign-up" className="formFieldLink">
+              Create an account
+            </Link>
+          </div>
         </form>
       </div>
     );
