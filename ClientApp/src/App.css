@@ -1,0 +1,151 @@
+.App {
+  height: 100%;
+  display: flex;
+  color: #A27752;
+}
+
+#root { 
+  background-color: #12130f;
+}
+
+.appAside {
+  width: 50%;
+  background-color: #006F71;
+  background-image: url(./images/ccu-logo.png);
+  background-size: 90%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.appForm {
+  width: 60%;
+  background-color: #12130f;
+  padding: 25px 40px;
+  overflow: auto;
+} 
+
+.pageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20%;
+}
+
+.pageSwitcherItem {
+  background-color: #21232b;
+  color: #A27752;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.pageSwitcherItem-active {
+  background-color: #006F71;
+  color: #ffffff;
+}
+
+.pageSwitcherItem:first-child {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.pageSwitcherItem:last-child {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.formCenter {
+  margin-bottom: 100px;
+}
+
+.formTitle {
+  color: #A27752;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.formTitleLink {
+  color: #A27752;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.8em;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+
+.formTitleLink:first-child {
+  margin: 0;
+}
+
+.formTitleLink-active {
+  color: #A27752;
+  border-bottom: 2px solid #006F71;
+}
+
+.formField {
+  margin-bottom: 40px;
+}
+
+.formFieldLabel {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  color: #A27752;
+}
+.formFieldInput {
+  width: 75%;
+  background-color: transparent;
+  border: none;
+  color: #A27752;
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.formFieldInput::placeholder {
+  color: #8895a7;
+}
+
+.formFieldButton {
+  background-color: #006F71;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.formFieldLink {
+  color: #7c8794;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1.5px solid #006F71;
+  padding-bottom: 5px;
+  font-size: 1.3em;
+}
+
+.formFieldCheckboxLabel {
+  color: #646f7d;
+  font-size: 0.9em;
+}
+
+.formFieldCheckbox {
+  position: relative;
+  top: 1.5px;
+}
+
+.formFieldTermsLink {
+  color: white;
+  border-bottom: 2px solid #006F71;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
