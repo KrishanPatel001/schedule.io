@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "../App.css";
 
@@ -35,11 +36,17 @@ class SignInForm extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-
     console.log("Username: " + this.state.email);
     console.log("Password: " + this.state.password);
+
+    const user = {
+      username: this.state.email,
+      password: this.state.password
+    };
+
+    
   }
 
   render() {

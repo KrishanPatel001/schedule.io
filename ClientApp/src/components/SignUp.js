@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 class SignUpForm extends Component {
   constructor() {
     super();
@@ -26,8 +26,22 @@ class SignUpForm extends Component {
     });
   }
 
+  
   handleSubmit(e) {
     e.preventDefault();
+    const newuser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios.post("https://localhost:5001/user", newuser)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
     console.log(this.state);
   }

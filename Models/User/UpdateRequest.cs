@@ -1,16 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using Schedule.Entities;
 
-namespace Schedule.Models.Users
+namespace Schedule.Models.User
 {
     public class UpdateRequest
     {
-        public string Title { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
 
-        [EnumDataType(typeof(Role))]
-        public string Role { get; set; }
+        public string Name { get; set; }
 
         [EmailAddress]
         public string Email { get; set; }
@@ -25,14 +21,8 @@ namespace Schedule.Models.Users
             set => _password = replaceEmptyWithNull(value);
         }
 
-        private string _confirmPassword;
-        [Compare("Password")]
-        public string ConfirmPassword 
-        {
-            get => _confirmPassword;
-            set => _confirmPassword = replaceEmptyWithNull(value);
-        }
-
+        /*[EnumDataType(typeof(Role))]
+        public string Role { get; set; }*/
         // helpers
 
         private string replaceEmptyWithNull(string value)

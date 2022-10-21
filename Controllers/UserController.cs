@@ -1,18 +1,18 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Schedule.Models.Users;
+using Schedule.Models.User;
 using Schedule.Services;
 
 namespace Schedule.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private IUserService _userService;
         private IMapper _mapper;
 
-        public UsersController(
+        public UserController(
             IUserService userService,
             IMapper mapper)
         {
@@ -23,8 +23,8 @@ namespace Schedule.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _userService.GetAll();
-            return Ok(users);
+            var user = _userService.GetAll();
+            return Ok(user);
         }
 
         [HttpGet("{id}")]

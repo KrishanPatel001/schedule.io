@@ -22,6 +22,8 @@ export class NavMenu extends Component {
     });
   }
 
+  
+
   render () {
     return (
       <header>
