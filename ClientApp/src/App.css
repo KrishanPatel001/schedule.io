@@ -1,25 +1,33 @@
 .App {
-  height: 100vh;
+  height: 100%;
   display: flex;
   color: #A27752;
+}
+
+#root { 
+  background-color: #12130f;
 }
 
 .appAside {
   width: 50%;
   background-color: #006F71;
+  background-image: url(./images/ccu-logo.png);
+  background-size: 90%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .appForm {
-  width: 50%;
+  width: 60%;
   background-color: #12130f;
   padding: 25px 40px;
   overflow: auto;
-}
+} 
 
 .pageSwitcher {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .pageSwitcherItem {
@@ -36,16 +44,16 @@
 
 .pageSwitcherItem-active {
   background-color: #006F71;
-  color: #000000;
+  color: #ffffff;
 }
 
 .pageSwitcherItem:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 .pageSwitcherItem:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .formCenter {
@@ -62,18 +70,18 @@
   color: #A27752;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.7em;
+  font-size: 1.8em;
   margin: 0 10px;
   padding-bottom: 5px;
 }
 
 .formTitleLink:first-child {
-  margin-left: 0;
+  margin: 0;
 }
 
 .formTitleLink-active {
   color: #A27752;
-  border-bottom: 1px solid #006F71;
+  border-bottom: 2px solid #006F71;
 }
 
 .formField {
@@ -87,7 +95,7 @@
   color: #A27752;
 }
 .formFieldInput {
-  width: 85%;
+  width: 75%;
   background-color: transparent;
   border: none;
   color: #A27752;
@@ -100,7 +108,7 @@
 }
 
 .formFieldInput::placeholder {
-  color: #616e7f;
+  color: #8895a7;
 }
 
 .formFieldButton {
@@ -115,11 +123,12 @@
 }
 
 .formFieldLink {
-  color: #66707d;
+  color: #7c8794;
   text-decoration: none;
   display: inline-block;
   border-bottom: 1.5px solid #006F71;
   padding-bottom: 5px;
+  font-size: 1.3em;
 }
 
 .formFieldCheckboxLabel {
@@ -134,40 +143,14 @@
 
 .formFieldTermsLink {
   color: white;
-  border-bottom: 1px solid #006F71;
+  border-bottom: 2px solid #006F71;
   text-decoration: none;
   display: inline-block;
   padding-bottom: 2px;
   margin-left: 5px;
 }
 
-.glossy-button {
-  display: inline-block;
-  position: relative;
-  background-color: #AAA;
-  background-image: linear-gradient( /* chrome */
-    hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0) 50%,
-    hsla(0, 0%, 0%, 0.3) 50%, hsla(0, 0%, 100%, 0.2)
-  );
-  font-size: 22px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  padding: 3px 3px;
-  text-shadow:
-    0 0 15px hsla(0, 0%, 100%, 1), /* bloom */
-    0 2px 4px hsla(0, 0%, 0%, 0.7); /* drop shadow */
-  border: none;
-  border-radius: 30px;
-  box-shadow:
-    inset 0 -5px 20px hsla(0, 0%, 0%, 0.4), /* top light */
-    inset 0 5px 20px hsla(0, 0%, 100%, 0.4), /* bottom shadow */
-    /* multiple light sources yall */
-    -8px 8px 5px hsla(0, 0%, 0%, 0.15), /* drop shadow 1 */
-    5px 18px 10px hsla(0, 0%, 0%, 0.2); /* drop shadow 2 */
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.glossy-button--teal { background-color: #006F71; }
+
 
 /* calendar event */
 

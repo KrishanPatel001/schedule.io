@@ -10,7 +10,7 @@ export class SignIn extends Component {
   
     render () {
         return (
-            <Router basename="/react-auth-ui/">
+            <Router basename="/">
               <div className="App">
                 <div className="appAside" />
                 <div className="appForm">
@@ -24,7 +24,7 @@ export class SignIn extends Component {
                     </NavLink>
                     <NavLink
                       exact
-                      to="/"
+                      to="/sign-up"
                       activeClassName="pageSwitcherItem-active"
                       className="pageSwitcherItem "
                     >
@@ -43,7 +43,7 @@ export class SignIn extends Component {
                     or{" "}
                     <NavLink
                       exact
-                      to="/"
+                      to="/sign-up"
                       activeClassName="formTitleLink-active"
                       className="formTitleLink"
                     >
@@ -51,7 +51,7 @@ export class SignIn extends Component {
                     </NavLink>
                   </div>
       
-                  <Route exact path="/" component={SignUpForm} />
+                  <Route path="/sign-up" component={SignUpForm} />
                   <Route path="/sign-in" component={SignInForm} />
                 </div>
               </div>

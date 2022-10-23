@@ -30,7 +30,7 @@ export class Counter extends Component {
 
         <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
 
-        <button className="btn btn-primary" onMouseOver={this.incrementCounter} onClick={this.decrementCounter}>Increment</button>
+        <button className="btn btn-primary" onMouseClick={this.incrementCounter} >Increment</button>
       </div>
     );
   }

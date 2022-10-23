@@ -4,7 +4,6 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import SignUpForm from "./components/SignUp";
-import SignInForm from "./components/SignIn";
 import SignIn from "./components/SignInPage";
 import { StudentSchedule } from './components/StudentPage';
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
