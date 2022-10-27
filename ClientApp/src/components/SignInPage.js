@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 import "../App.css";
 
-export class SignIn extends Component {
+class SignIn extends Component {
     static displayName = SignIn.name;
   
     render () {

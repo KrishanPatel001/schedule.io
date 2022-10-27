@@ -41,6 +41,13 @@ namespace Schedule.Controllers
             return Ok(new { message = "User created" });
         }
 
+        [HttpPost("{Login}")]
+        public IActionResult Login(LoginRequest model)
+        {
+            _userService.Login(model);
+            return Ok(new { message = "User Login" });
+        }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, UpdateRequest model)
         {

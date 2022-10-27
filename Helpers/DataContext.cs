@@ -16,7 +16,7 @@ namespace Schedule.Helpers
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to mysql with connection string from app settings
-            var connectionString = Configuration.GetConnectionString("WebApiDatabase");
+            var connectionString = Configuration.GetConnectionString("LocalDatabase");
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 

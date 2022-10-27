@@ -13,6 +13,7 @@ namespace Schedule.Services
         IEnumerable<User> GetAll();
         User GetById(int id);
         void Create(CreateRequest model);
+        void Login(LoginRequest model);
         void Update(int id, UpdateRequest model);
         void Delete(int id);
     }
@@ -55,6 +56,25 @@ namespace Schedule.Services
 
             // save user
             _context.User.Add(user);
+            _context.SaveChanges();
+        }
+        public void Login(LoginRequest model)
+        {
+            // validate
+            if (_context.User.Any(x => x.Email != model.Email))
+                throw new AppException("Email address: '" + model.Email + "' does not exist");
+
+            // map model to new user object
+            var user = _mapper.Map<User>(model);
+
+            //user.Role = Role.User;
+            // hash password
+            user.Password = BCryptNet.HashPassword(model.Password);
+
+            if (_context.User.Any(x => x.Password != user.Password))
+                throw new AppException("Password is incorrect");
+
+            // save user
             _context.SaveChanges();
         }
 

@@ -36,17 +36,21 @@ class SignInForm extends Component {
     });
   }
 
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    console.log("Username: " + this.state.email);
-    console.log("Password: " + this.state.password);
-
     const user = {
-      username: this.state.email,
-      password: this.state.password
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
     };
-
     
+    axios.post("https://localhost:5001/user/login", user)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
