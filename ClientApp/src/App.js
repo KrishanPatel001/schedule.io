@@ -10,8 +10,7 @@ import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import './custom.css'
 import "./App.css";
 
-
-function App() {  
+export default function App() {  
     return (
       <Layout>
         <Route path='/' exact component ={Home}/>
@@ -22,5 +21,3 @@ function App() {
       </Layout>
     );
 }
-
-export default App;

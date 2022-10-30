@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -77,7 +77,7 @@ const SignUpForm = () => {
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 500) {
-        setErrMsg('EMAIL ALREADY REGISTERED');
+        setErrMsg('EMAIL ALREADY REGISTERED!');
       } else {
         setErrMsg('Registration Failed')
       }
@@ -167,28 +167,13 @@ const SignUpForm = () => {
                   Must be a valid email address.
                 </p>
               </div>
-
-              <div className="formField">
-                <label className="formFieldCheckboxLabel">
-                  <input
-                    className="formFieldCheckbox"
-                    type="checkbox"
-                    name="hasAgreed"
-                  />{" "}
-                  I agree all statements in{" "}
-                  <a href="null" className="formFieldTermsLink">
-                    terms of service
-                  </a>
-                </label>
-              </div>
-
               <div className="formField">
                 <button className="formFieldButton" disabled={!validUser || !validPwd || !validEmail ? true : false}>Sign Up</button>{" "}
                 <Link to="/sign-in" className="formFieldLink">
                   I'm already member
                 </Link>
               </div>
-              </form>
+            </form>
           </section>
         )
       }
