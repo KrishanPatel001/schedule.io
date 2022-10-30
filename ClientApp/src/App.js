@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Layout } from './components/Layout';
-import { Home } from './components/Home';
+import Home from './components/Home';
 import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
 import SignUpForm from "./components/SignUp";
 import SignIn from "./components/SignInPage";
 import SignInForm from "./components/SignIn";
@@ -15,9 +14,8 @@ import "./App.css";
 function App() {  
     return (
       <Layout>
-        <Route component={SignIn}/>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
+        <Route path='/' exact component ={Home}/>
+        <Route path='/' exact component={SignIn}/>
         <Route path='/fetch-data' component={FetchData} />
         <Route path="/sign-up" component={SignUpForm} />
         <Route path="/sign-in" component={SignInForm} />

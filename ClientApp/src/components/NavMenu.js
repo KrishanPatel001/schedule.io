@@ -22,8 +22,6 @@ export class NavMenu extends Component {
     });
   }
 
-  
-
   render () {
     return (
       <header>
@@ -43,14 +41,6 @@ export class NavMenu extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink 
-                    tag={Link}
-                    activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem" 
-                    to="/counter">Counter
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink 
                     tag={Link} 
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem" 
@@ -60,7 +50,7 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    to="/sign-in#/sign-in"
+                    to="/"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
                     Sign In

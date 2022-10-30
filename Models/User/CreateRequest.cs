@@ -17,7 +17,7 @@ namespace Schedule.Models.User
         [MinLength(6)]
         public string Password { get; set; }
     
-        //[EnumDataType(typeof(Role))]
-        //public Role Role { get; set; }
+        [EnumDataType(typeof(Role))]
+        public Role Role { get; set; }
     }
 }

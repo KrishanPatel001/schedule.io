@@ -12,6 +12,6 @@ namespace Schedule.Entities
         [JsonIgnore]
         public string Password { get; set; }
 
-        //public Role Role { get; set; } 
+        public Role Role { get; set; } 
     }
 }

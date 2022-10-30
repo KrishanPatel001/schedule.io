@@ -11,7 +11,7 @@ class SignInForm extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,17 +39,19 @@ class SignInForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = {
-      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
     };
     
-    axios.post("https://localhost:5001/user/login", user)
+    axios.post("https://localhost:5001/user/sign-in", user)
     .then(function (response) {
       console.log(response.data);
+      return alert("Welcome!!!");
     })
     .catch(function (error) {
       console.log(error);
+      console.log(user.email, user.password);
+      return alert("Invalid Email or Password!");
     });
   }
 

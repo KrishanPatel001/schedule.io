@@ -50,9 +50,9 @@ namespace Schedule.Services
             // map model to new user object
             var user = _mapper.Map<User>(model);
 
-            //user.Role = Role.User;
+            user.Role = Role.User;
             // hash password
-            user.Password = BCryptNet.HashPassword(model.Password);
+            user.Password = BCryptNet.HashPassword(model.Password, 10);
 
             // save user
             _context.User.Add(user);
@@ -61,20 +61,10 @@ namespace Schedule.Services
         public void Login(LoginRequest model)
         {
             // validate
-            if (_context.User.Any(x => x.Email != model.Email))
-                throw new AppException("Email address: '" + model.Email + "' does not exist");
-
-            // map model to new user object
-            var user = _mapper.Map<User>(model);
-
-            //user.Role = Role.User;
-            // hash password
-            user.Password = BCryptNet.HashPassword(model.Password);
-
-            if (_context.User.Any(x => x.Password != user.Password))
-                throw new AppException("Password is incorrect");
-
-            // save user
+            User account =_context.User.SingleOrDefault(x => x.Email == model.Email);
+            if (account == null || !BCryptNet.Verify(model.Password, account.Password))
+                throw new AppException("Email or Password is incorrect");
+            
             _context.SaveChanges();
         }
 
