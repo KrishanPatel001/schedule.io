@@ -74,13 +74,6 @@ export class NavMenu extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink 
-                    tag={Link} 
-                    to="/Get-test"
-                    activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem">
-                    Get test
-                  </NavLink>
                 </NavItem>
               </ul>
             </Collapse>
