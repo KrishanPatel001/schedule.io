@@ -51,7 +51,7 @@ let courses = [
   {
     id: 1,
     text: "testCourse 1",
-    start: "2023-01-15T09:25:00",
+    start: "2023-01-15T09:30:00",
     end: "2023-01-15T10:40:00",
     barColor: "#fcb711",
     resource: "TH",
@@ -120,7 +120,6 @@ export class StudentSchedule extends Component {
   constructor(props) {
     super(props);
 
-
     this.calendarRef = React.createRef();
 
     this.state = {
@@ -130,12 +129,13 @@ export class StudentSchedule extends Component {
 
     axios({
       method: "get",
-      url: "http://schedule.cnsf2no5vx3j.us-east-1.rds.amazonaws.com/course",
+      url: "/course",
     }).then(function (response) {
       console.log(response.data);
     });
 
   }
+
   componentDidMount() {
     this.loadCalendarData();
   }
