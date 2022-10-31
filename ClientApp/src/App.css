@@ -150,8 +150,9 @@
   margin-left: 5px;
 }
 
-
-
+.addButton{
+  margin-bottom: 5px;
+}
 /* calendar event */
 
 .calendar_default_event_inner {
@@ -168,5 +169,5 @@
 }
 
 .studentPage{
-  background: #006F71;
+  background: #12130f;
 }

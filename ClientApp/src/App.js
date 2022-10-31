@@ -6,6 +6,7 @@ import { Counter } from './components/Counter';
 import SignUpForm from "./components/SignUp";
 import SignIn from "./components/SignInPage";
 import { StudentSchedule } from './components/StudentPage';
+import { Gettest } from './components/Gettest';
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 import './custom.css'
@@ -23,6 +24,7 @@ export class App extends Component {
         <Route path="/sign-up" component={SignUpForm} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/Student-page" component={StudentSchedule} />
+        <Route path="/Get-test" component={Gettest} />
       </Layout>
     );
   }

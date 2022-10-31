@@ -35,7 +35,7 @@ class SignUpForm extends Component {
       password: this.state.password,
     };
 
-    axios.post("https://localhost:5001/user", newuser)
+    axios.post("http://localhost:5001/user", newuser)
     .then(function (response) {
       console.log(response.data);
     })

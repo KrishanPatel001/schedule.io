@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {DayPilot, DayPilotCalendar, DayPilotNavigator} from "@daypilot/daypilot-lite-react";
 import styled from 'styled-components';
 import "../App.css"
+import axios from 'axios';
 
 /*styles for calendar*/
 const styles = {
@@ -18,31 +19,34 @@ const styles = {
 
 /*styles for scrollable list*/
 const Container = styled.div`
-  background: #006F71;
+  background: #12130f;
   display: flex;
-  justify-content: center; // 1
-  flex-flow: column wrap; // 2
+  justify-content: center; 
+  flex-flow: column wrap; 
   width: 100%;
   height: 10%;
 `;
 const List = styled.div`
   display: flex;
-  justify-content: center; // 3
-  flex-flow: row wrap; // 4
+  justify-content: center; 
+  flex-flow: row wrap; 
 `;
 
 const Card = styled.div`
   margin: 10px;
+  color: #12130f;
   background: #fff;
   height: 125px;
   width: 250px;
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-flow: column; // 5 
+  flex-flow: column; 
   justify-content: center;
   align-items: center;
 `;
+
+/*list of test courses*/
 let courses = [
   {
     id: 1,
@@ -116,7 +120,6 @@ export class StudentSchedule extends Component {
   constructor(props) {
     super(props);
 
-    
 
     this.calendarRef = React.createRef();
 
@@ -124,6 +127,14 @@ export class StudentSchedule extends Component {
       viewType: "Resources",
       durationBarVisible: false,
     }
+
+    axios({
+      method: "get",
+      url: "http://schedule.cnsf2no5vx3j.us-east-1.rds.amazonaws.com/course",
+    }).then(function (response) {
+      console.log(response.data);
+    });
+
   }
   componentDidMount() {
     this.loadCalendarData();
@@ -221,8 +232,7 @@ export class StudentSchedule extends Component {
                   {course.text}&nbsp;<br></br>
                   Day:&nbsp;{course.resource}&nbsp;<br></br>
                   Time:&nbsp;{course.start}<br></br>
-                  Instuctor:&nbsp;{course.instuctor}
-                 <button>Add</button>
+                 <button className='addButton'>Add</button>
 
                   </Card>)}
               </List>
