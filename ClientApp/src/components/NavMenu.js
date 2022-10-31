@@ -47,6 +47,15 @@ export class NavMenu extends Component {
                     to="/fetch-data">Fetch data
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/sign-in#/sign-in"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    Sign In
+                  </NavLink>
+                </NavItem>
               </ul>
             </Collapse>
           </Container>

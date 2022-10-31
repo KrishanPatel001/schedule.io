@@ -145,6 +145,28 @@
   color: green;
 }
 
+<<<<<<< HEAD
 .red{
   color: red;
+=======
+
+
+/* calendar event */
+
+.calendar_default_event_inner {
+  background: #006F71 !important; 
+  color: #fff !important;
+  border: none !important;
+  border-radius: 5px !important;
+  font-size: 10pt !important;
+  padding: 5px !important;
+  opacity: 0.8 !important;
+}
+.calendar{
+  padding-top:150px !important;
+}
+
+.studentPage{
+  background: #006F71;
+>>>>>>> Student
 }
