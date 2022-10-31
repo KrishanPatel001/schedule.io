@@ -11,6 +11,8 @@ namespace Schedule.Helpers
             // CreateRequest -> User
             CreateMap<CreateRequest, User>();
 
+            CreateMap<LoginRequest, User>();
+
             // UpdateRequest -> User
             CreateMap<UpdateRequest, User>()
                 .ForAllMembers(x => x.Condition(

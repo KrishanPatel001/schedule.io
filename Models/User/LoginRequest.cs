@@ -3,12 +3,8 @@ using Schedule.Entities;
 
 namespace Schedule.Models.User
 {
-    public class CreateRequest
+    public class LoginRequest
     {
-
-        [Required]
-        public string Name { get; set; }
-
         [Required]
         [EmailAddress]
         public string Email { get; set; }
@@ -17,7 +13,7 @@ namespace Schedule.Models.User
         [MinLength(6)]
         public string Password { get; set; }
     
-        [EnumDataType(typeof(Role))]
-        public Role Role { get; set; }
+        //[EnumDataType(typeof(Role))]
+        //public Role Role { get; set; }
     }
 }

@@ -6,13 +6,14 @@
 
 #root { 
   background-color: #12130f;
+  color: #A27752;
 }
 
 .appAside {
   width: 50%;
   background-color: #006F71;
   background-image: url(./images/ccu-logo.png);
-  background-size: 90%;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -131,23 +132,17 @@
   font-size: 1.3em;
 }
 
-.formFieldCheckboxLabel {
-  color: #646f7d;
-  font-size: 0.9em;
+.hiden{
+  display: none;
 }
 
-.formFieldCheckbox {
-  position: relative;
-  top: 1.5px;
+.loud{
+  color: red;
+  size: 24px;
 }
 
-.formFieldTermsLink {
-  color: white;
-  border-bottom: 2px solid #006F71;
-  text-decoration: none;
-  display: inline-block;
-  padding-bottom: 2px;
-  margin-left: 5px;
+.green{
+  color: green;
 }
 
 .addButton{
