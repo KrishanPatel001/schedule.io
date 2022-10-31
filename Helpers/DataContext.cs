@@ -20,6 +20,6 @@ namespace Schedule.Helpers
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> user { get; set; }
     }
 }
