@@ -33,7 +33,7 @@ namespace Schedule.Services
 
         public IEnumerable<User> GetAll()
         {
-            return _context.User;
+            return _context.user;
         }
 
         public User GetById(int id)
@@ -44,7 +44,7 @@ namespace Schedule.Services
         public void Create(CreateRequest model)
         {
             // validate
-            if (_context.User.Any(x => x.Email == model.Email))
+            if (_context.user.Any(x => x.Email == model.Email))
                 throw new AppException("User with the email '" + model.Email + "' already exists");
 
             // map model to new user object
@@ -55,13 +55,13 @@ namespace Schedule.Services
             user.Password = BCryptNet.HashPassword(model.Password, 10);
 
             // save user
-            _context.User.Add(user);
+            _context.user.Add(user);
             _context.SaveChanges();
         }
         public void Login(LoginRequest model)
         {
             // validate
-            User account =_context.User.SingleOrDefault(x => x.Email == model.Email);
+            User account =_context.user.SingleOrDefault(x => x.Email == model.Email);
             if (account == null || !BCryptNet.Verify(model.Password, account.Password))
                 throw new AppException("Email or Password is incorrect");
             
@@ -73,7 +73,7 @@ namespace Schedule.Services
             var user = getUser(id);
 
             // validate
-            if (model.Email != user.Email && _context.User.Any(x => x.Email == model.Email))
+            if (model.Email != user.Email && _context.user.Any(x => x.Email == model.Email))
                 throw new AppException("User with the email '" + model.Email + "' already exists");
 
             // hash password if it was entered
@@ -82,14 +82,14 @@ namespace Schedule.Services
 
             // copy model to user and save
             _mapper.Map(model, user);
-            _context.User.Update(user);
+            _context.user.Update(user);
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var user = getUser(id);
-            _context.User.Remove(user);
+            _context.user.Remove(user);
             _context.SaveChanges();
         }
 
@@ -97,7 +97,7 @@ namespace Schedule.Services
 
         private User getUser(int id)
         {
-            var user = _context.User.Find(id);
+            var user = _context.user.Find(id);
             if (user == null) throw new KeyNotFoundException("User not found");
             return user;
         }
