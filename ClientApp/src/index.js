@@ -16,4 +16,3 @@ ReactDOM.render(
   </BrowserRouter>,
   rootElement);
 
-  registerServiceWorker();

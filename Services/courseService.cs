@@ -32,10 +32,10 @@ namespace Schedule.Services
 
         public IEnumerable<Course> GetAll()
         {
-            return _context.Course;
+            return _context.course;
         }
 
-        public Course GetByCourse(string text)
+        public Course GetBytext(string text)
         {
             return getCourse(text);
         }
@@ -43,8 +43,8 @@ namespace Schedule.Services
         public void Create(CreateRequest model)
         {
             // validate
-            if (_context.Course.Any(x => x.text == model.text))
-                throw new AppException("Course with name '" + model.course + "' already exists");
+            if (_context.course.Any(x => x.text == model.text))
+                throw new AppException("Course with name '" + model.text + "' already exists");
 
             // map model to new course object
             var course = _mapper.Map<Course>(model);
@@ -54,7 +54,7 @@ namespace Schedule.Services
             //user.Password = BCryptNet.HashPassword(model.Password);
 
             // save course
-            _context.Course.Add(course);
+            _context.course.Add(course);
             _context.SaveChanges();
         }
 
@@ -63,7 +63,7 @@ namespace Schedule.Services
             var course = getCourse(text);
 
             // validate
-            if (model.text != course.text && _context.Course.Any(x => x.text == model.text))
+            if (model.text != course.text && _context.course.Any(x => x.text == model.text))
                 throw new AppException("Course with the name '" + model.text + "' already exists");
 
             // hash password if it was entered
@@ -72,14 +72,14 @@ namespace Schedule.Services
 
             // copy model to user and save
             _mapper.Map(model, course);
-            _context.Course.Update(course);
+            _context.course.Update(course);
             _context.SaveChanges();
         }
 
         public void Delete(string text)
         {
             var course = getCourse(text);
-            _context.Course.Remove(course);
+            _context.course.Remove(course);
             _context.SaveChanges();
         }
 
@@ -87,7 +87,7 @@ namespace Schedule.Services
 
         private Course getCourse(string text)
         {
-            var course = _context.Course.Find(text);
+            var course = _context.course.Find(text);
             if (course == null) throw new KeyNotFoundException("Course not found");
             return course;
         }

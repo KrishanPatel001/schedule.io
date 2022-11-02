@@ -50,8 +50,10 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    className="text-dark" 
-                    to="/Student-Page">Student
+                    to="/Student-Page"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    Student
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -61,6 +63,15 @@ export class NavMenu extends Component {
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
                     Sign In
+                  </NavLink>
+                  </NavItem>
+                  <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/Get-testData"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    GetTest
                   </NavLink>
                 </NavItem>
                 <NavItem>

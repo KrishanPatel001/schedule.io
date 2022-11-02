@@ -2,6 +2,11 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Schedule.Models.Course;
 using Schedule.Services;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Schedule.Controllers
 {
@@ -49,7 +54,7 @@ namespace Schedule.Controllers
         }
 
         [HttpDelete("{text}")]
-        public IActionResult Delete(int text)
+        public IActionResult Delete(string text)
         {
             _courseService.Delete(text);
             return Ok(new { message = "Course deleted" });
