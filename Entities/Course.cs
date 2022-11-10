@@ -4,17 +4,17 @@ namespace Schedule.Entities
 {
     public class Course
     {
-        public string text { get; set; }
-        
-        public string id { get; set; }
+        public int Id { get; set; }
 
-        public string start { get; set; }
+        public string Resource { get; set; }
 
+        public string Text { get; set; }
 
-        public string end { get; set; }
+        public int IsOpen { get; set; }
 
+        public string Start { get; set; }
 
-        public int isOpen { get; set; }
+        public string End { get; set; }
 
     }
 }

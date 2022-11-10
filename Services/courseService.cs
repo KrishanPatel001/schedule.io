@@ -11,10 +11,10 @@ namespace Schedule.Services
     public interface ICourseService
     {
         IEnumerable<Course> GetAll();
-        Course GetBytext(string text);
-        void Create(CreateRequest model);
-        void Update(string text, UpdateRequest model);
-        void Delete(string text);
+        Course GetById(int id);
+        void Create(CreateCourse model);
+        void Update(int id, UpdateCourse model);
+        void Delete(int id);
     }
 
     public class CourseService : ICourseService
@@ -35,16 +35,16 @@ namespace Schedule.Services
             return _context.course;
         }
 
-        public Course GetBytext(string text)
+        public Course GetById(int id)
         {
-            return getCourse(text);
+            return getCourse(id);
         }
 
-        public void Create(CreateRequest model)
+        public void Create(CreateCourse model)
         {
             // validate
-            if (_context.course.Any(x => x.text == model.text))
-                throw new AppException("Course with name '" + model.text + "' already exists");
+            if (_context.course.Any(x => x.Text == model.Text))
+                throw new AppException("Course with text '" + model.Text + "' already exists");
 
             // map model to new course object
             var course = _mapper.Map<Course>(model);
@@ -58,13 +58,13 @@ namespace Schedule.Services
             _context.SaveChanges();
         }
 
-        public void Update(string text, UpdateRequest model)
+        public void Update(int id, UpdateCourse model)
         {
-            var course = getCourse(text);
+            var course = getCourse(id);
 
             // validate
-            if (model.text != course.text && _context.course.Any(x => x.text == model.text))
-                throw new AppException("Course with the name '" + model.text + "' already exists");
+            if (model.Text != course.Text && _context.course.Any(x => x.Text == model.Text))
+                throw new AppException("Course with the name '" + model.Text + "' already exists");
 
             // hash password if it was entered
            // if (!string.IsNullOrEmpty(model.Password))
@@ -76,18 +76,18 @@ namespace Schedule.Services
             _context.SaveChanges();
         }
 
-        public void Delete(string text)
+        public void Delete(int id)
         {
-            var course = getCourse(text);
+            var course = getCourse(id);
             _context.course.Remove(course);
             _context.SaveChanges();
         }
 
         // helper methods
 
-        private Course getCourse(string text)
+        private Course getCourse(int id)
         {
-            var course = _context.course.Find(text);
+            var course = _context.course.Find(id);
             if (course == null) throw new KeyNotFoundException("Course not found");
             return course;
         }

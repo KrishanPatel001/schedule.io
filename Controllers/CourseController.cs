@@ -2,11 +2,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Schedule.Models.Course;
 using Schedule.Services;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Schedule.Controllers
 {
@@ -32,31 +27,31 @@ namespace Schedule.Controllers
             return Ok(course);
         }
 
-        [HttpGet("{text}")]
-        public IActionResult GetBytext(string text)
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
-            var course = _courseService.GetBytext(text);
+            var course = _courseService.GetById(id);
             return Ok(course);
         }
 
         [HttpPost]
-        public IActionResult Create(CreateRequest model)
+        public IActionResult Create(CreateCourse model)
         {
             _courseService.Create(model);
             return Ok(new { message = "Course created" });
         }
 
-        [HttpPut("{text}")]
-        public IActionResult Update(string text, UpdateRequest model)
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UpdateCourse model)
         {
-            _courseService.Update(text, model);
+            _courseService.Update(id, model);
             return Ok(new { message = "Course updated" });
         }
 
-        [HttpDelete("{text}")]
-        public IActionResult Delete(string text)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            _courseService.Delete(text);
+            _courseService.Delete(id);
             return Ok(new { message = "Course deleted" });
         }
     }

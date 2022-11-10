@@ -127,13 +127,6 @@ export class StudentSchedule extends Component {
       durationBarVisible: false,
     }
 
-    axios({
-      method: "get",
-      url: "/course",
-    }).then(function (response) {
-      console.log(response.data);
-    });
-
   }
 
   componentDidMount() {
