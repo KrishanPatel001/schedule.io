@@ -138,18 +138,24 @@ export class getTestData extends Component {
        </div>
       );
     }
-    async  getCourseData() {
+    async getCourseData() {
            const response = await fetch('/course');
             const data = await response.json();
            this.setState({ courses: data, loading: false });
            
-
          }
 
-       async getMyCourseData(){
-        const response = await fetch('/mycourse');
-        const data = await response.json();
-        this.setState({ mycourses: data, loading: false });
-        }
-  
+    async getMyCourseData(){
+        // axios
+        axios.get('/mycourses')
+        .then(response => {
+            console.log(response.data);
+            const data = response.json();
+            this.setState({ courses: data, loading:false });
+          }, error => {
+            console.log(error);
+          });
+
+                  }
+
 }
