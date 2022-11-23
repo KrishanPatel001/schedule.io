@@ -22,5 +22,6 @@ namespace Schedule.Helpers
 
         public DbSet<User> user { get; set; }
         public DbSet<Course> course { get; set; }
+        public DbSet<MyCourse> mycourse { get; set; }
     }
 }

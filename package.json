@@ -3,6 +3,7 @@
     "@daypilot/daypilot-lite-react": "^3.10.1",
     "@syncfusion/ej2-react-schedule": "^20.3.47",
     "mysql": "^2.18.1",
+    "react-table-scrollbar": "^0.1.11",
     "styled-components": "^5.3.6"
   }
 }

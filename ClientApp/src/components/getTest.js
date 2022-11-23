@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
 import { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import TableScrollbar from 'react-table-scrollbar';
 import "../App.css"
 import axios from 'axios';
+import SearchBar from './Search';
+
+/*styles for left right split*/
+const styles = {
+    wrap: {
+      display: "flex",
+    },
+    left: {
+      marginRight: "30px",
+    },
+    main: {
+      flexGrow: "1",
+    }
+  };
 
 /*styles for scrollable list*/
 const Container = styled.div`
@@ -19,56 +35,39 @@ const List = styled.div`
   flex-flow: row wrap; 
 `;
 
-const Card = styled.div`
-  margin: 10px;
-  color: #12130f;
-  background: #fff;
-  height: 125px;
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-flow: column; 
-  justify-content: center;
-  align-items: center;
-`;
-
 export class getTestData extends Component {
 
     constructor(props) {
       super(props);
-      this.state = {courses: [], loading: false }; 
-    }
+      this.state = {courses: [], mycourses: [], articles: [], loading: false}; 
 
-   /* getCourseData() {
-        let courses= axios({
-             method: "get",
-             url: "/course",
-           }).then(function (response) {
-             console.log(response.data);
-             setData(response.courses);
-              console.log(data)
-           });
-         }*/
-    
-  
+
+    }
+     
     componentDidMount() {
       this.getCourseData();
+      this.getMyCourseData();
         }
-  
-   // static renderCoursesTable(courses) {
-   static renderCoursesTable(courses){
+
+   static renderCoursesTable(courses,mycourses){
       return (
+        <div className='studentPage'>
+        <div style={styles.wrap}>
+          <div style={styles.left}>
             <div className="container">
             <h3 className="p-3 text-center">Spring&nbsp;2023&nbsp;Courses</h3>
-        <table className='table table-striped gold' aria-labelledby="tabelLabel">
+            <div className="searchBar">
+            <SearchBar />
+            </div>
+            <TableScrollbar  height="540px">
+        <table className='table table gold' aria-labelledby="tabelLabel">
           <thead>
             <tr>
               <th>Course Name:</th>
               <th>Time Start:</th>
               <th>Time End:</th>
-              <th>resource:</th>
-              <th>Id:</th>
+              <th>Day:</th>
+              <th>Options:</th>
             </tr>
           </thead>
           <tbody>
@@ -78,46 +77,79 @@ export class getTestData extends Component {
                 <td>{course.start}</td>
                 <td>{course.end}</td>
                 <td>{course.resource}</td>
-                <td>{course.id}</td>
+                <td><button className='addButton'>Add</button></td>
               </tr>
             )}
           </tbody>
         </table>
+        </TableScrollbar>
+        </div>
+        </div>
+        <div className="mycoursesTable">
+        <p className='p-3 text-center'>Your course schedule:</p>
+        <table className='table table gold' aria-labelledby="tabelLabel">
+      <thead>
+        <tr>
+          <th>Course Name:</th>
+          <th>Time Start:</th>
+          <th>Time End:</th>
+          <th>Day:</th>
+          <th>Options:</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {mycourses.map(mycourse =>
+              <tr key={mycourses.Id}>
+                <td>{mycourse.course1}</td>
+                <td>{mycourse.course2}</td>
+                <td>{mycourse.course3}</td>
+                <td>{mycourse.course4}</td>
+                <td>{mycourse.course5}</td>
+                <td><button className='addButton'>Drop Course</button></td>
+            </tr>
+            )}
+      </tbody>
+    </table>
+    </div>
+        </div>
         </div>
       );
     }
-  
+
+   
     render() {
       let contents = this.state.loading
         ? <p><em>Loading...</em></p>
-        : getTestData.renderCoursesTable(this.state.courses);
+        : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);
+     /* let mycontents = this.state.loading
+        ? <p><em>Loading...</em></p>
+        : getTestData.renderMyCoursesTable(this.state.mycourses);*/
   
       return (
+        <div className='studentPage'>
+        <div style={styles.wrap}>
         <div>
           <h1 id="tabelLabel" >Welcome, Student</h1>
           <p>View and Edit your course schedule below</p>
           {contents}
         </div>
+       </div>
+       </div>
       );
     }
     async  getCourseData() {
-       /* const data = axios({
-             method: "get",
-             url: "/course",
-           }).then(function (response) {
-             console.log(response.data);
-           });*/
            const response = await fetch('/course');
             const data = await response.json();
            this.setState({ courses: data, loading: false });
+           
+
          }
-         //to get individual students courses
-         //need To add table to database that keeps track of which courses students
-         //are signed up for.
-    /*async getMyCourseData(){
-        const response = await fetch('/course');
+
+       async getMyCourseData(){
+        const response = await fetch('/mycourse');
         const data = await response.json();
-       this.setState({ courses: data, loading: false });
-     }*/
+        this.setState({ mycourses: data, loading: false });
+        }
   
 }

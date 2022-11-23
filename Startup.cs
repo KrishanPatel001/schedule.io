@@ -42,7 +42,8 @@ namespace Schedule
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ICourseService, CourseService>(); //Ashley
+            services.AddScoped<ICourseService, CourseService>();    //Ashley
+            services.AddScoped<IMyCourseService, MyCourseService>(); //Ashley
 
             services.AddSpaStaticFiles(configuration => {
                 configuration.RootPath = "ClientApp/build";

@@ -75,6 +75,15 @@ export class NavMenu extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/Fetch-mycourses"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    My Courses
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                 </NavItem>
               </ul>
             </Collapse>
