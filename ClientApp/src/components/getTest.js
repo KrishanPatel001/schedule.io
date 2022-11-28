@@ -39,10 +39,10 @@ export class getTestData extends Component {
 
     constructor(props) {
       super(props);
-      this.state = {courses: [], mycourses: [], articles: [], loading: false}; 
-
+      this.state = {courses: [], mycourses: [], loading: false}; 
 
     }
+
      
     componentDidMount() {
       this.getCourseData();
@@ -57,7 +57,7 @@ export class getTestData extends Component {
             <div className="container">
             <h3 className="p-3 text-center">Spring&nbsp;2023&nbsp;Courses</h3>
             <div className="searchBar">
-            <SearchBar />
+ 
             </div>
             <TableScrollbar  height="540px">
         <table className='table table gold' aria-labelledby="tabelLabel">
@@ -77,7 +77,7 @@ export class getTestData extends Component {
                 <td>{course.start}</td>
                 <td>{course.end}</td>
                 <td>{course.resource}</td>
-                <td><button className='addButton'>Add</button></td>
+                <td><button className='addButton'name="submit" value="Submit" onClick={this.handleSubmit}>Add</button></td>
               </tr>
             )}
           </tbody>
@@ -98,6 +98,7 @@ export class getTestData extends Component {
       {mycourses.map(mycourse =>
               <tr key={mycourse.id}>
                 <td>{mycourse.courses}</td>
+
             </tr>
             )}
       </tbody>
