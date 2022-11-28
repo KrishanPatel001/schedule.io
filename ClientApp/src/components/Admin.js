@@ -96,8 +96,7 @@ export class getAdminCourses extends Component {
         <div className='studentPage'>
         <div style={styles.wrap}>
         <div>
-          <h1 id="tabelLabel" >Welcome, Admin</h1>
-          <p>Here is the list of courses.</p>
+          <h1 id="tabelLabel" >Welcome, admin</h1>
           {contents}
         </div>
        </div>
