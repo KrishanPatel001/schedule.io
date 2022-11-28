@@ -168,9 +168,20 @@ const SignUpForm = () => {
                 </p>
               </div>
               <div className="formField">
+              <label className="formFieldLabel" htmlFor="userType">
+                  Sign Up As
+              </label>
+
+              <input type="radio" id="Admin" name="userType"/>
+                  <label for="Admin">Admin</label><br></br>
+                  
+                <input type="radio" id="Student" name="userType"/>
+                  <label for="Student">Student</label><br></br>
+              </div>
+              <div className="formField">
                 <button className="formFieldButton" disabled={!validUser || !validPwd || !validEmail ? true : false}>Sign Up</button>{" "}
                 <Link to="/sign-in" className="formFieldLink">
-                  I'm already member
+                  I'm already a member
                 </Link>
               </div>
             </form>
