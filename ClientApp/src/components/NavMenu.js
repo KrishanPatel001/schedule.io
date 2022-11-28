@@ -60,7 +60,7 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    to="/Sign-in"
+                    to="/Get-testData-admin"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
                     Admin

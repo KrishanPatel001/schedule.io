@@ -25,6 +25,7 @@ export default function App() {
         <Route path="/Student-page" component={StudentSchedule} />
         <Route path="/Get-testData" component={getTestData}/>
         <Route path="/Fetch-mycourses" component={FetchMyCourses}/>
+        <Route path="/Get-testData-admin" component={getAdminCourses}/>
       </Layout>
     );
 }
