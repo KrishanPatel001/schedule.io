@@ -80,7 +80,6 @@ export class getAdminCourses extends Component {
         </TableScrollbar>
         </div>
         </div>
-        </div>
       );
     }
 
