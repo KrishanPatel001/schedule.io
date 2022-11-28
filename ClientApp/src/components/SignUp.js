@@ -184,10 +184,10 @@ const SignUpForm = () => {
               </label>
 
               <input type="radio" id="Admin" name="userType" value="Admin" onChange={(e) => setUserType(e.target.value)}/>
-                  <label for="Admin">Admin</label><br></br>
+                  <label htmlFor="Admin">Admin</label><br></br>
                   
                 <input type="radio" id="Student" name="userType" value="Student" onChange={(e) => setUserType(e.target.value)}/>
-                  <label for="Student">Student</label><br></br>
+                  <label htmlFor="Student">Student</label><br></br>
               </div>
               <div className="formField">
                 <button className="formFieldButton" disabled={!validUser || !validPwd || !validEmail ? true : false}>Sign Up</button>{" "}
