@@ -42,23 +42,6 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem" 
-                    to="/fetch-data">Fetch data
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink 
-                    tag={Link} 
-                    to="/Student-Page"
-                    activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem">
-                    Student
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink 
-                    tag={Link} 
                     to="/Sign-in"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
@@ -69,15 +52,6 @@ export class NavMenu extends Component {
                   <NavLink 
                     tag={Link} 
                     to="/Get-testData"
-                    activeclassname="pageSwitcherItem-active"
-                    className="pageSwitcherItem">
-                    GetTest
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink 
-                    tag={Link} 
-                    to="/Fetch-mycourses"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
                     My Courses

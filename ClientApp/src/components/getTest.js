@@ -46,7 +46,7 @@ export class getTestData extends Component {
      
     componentDidMount() {
       this.getCourseData();
-      this.getMyCourseData();
+      //this.getMyCourseData();
         }
 
    static renderCoursesTable(courses,mycourses){
@@ -91,22 +91,13 @@ export class getTestData extends Component {
       <thead>
         <tr>
           <th>Course Name:</th>
-          <th>Time Start:</th>
-          <th>Time End:</th>
-          <th>Day:</th>
-          <th>Options:</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
       {mycourses.map(mycourse =>
-              <tr key={mycourses.Id}>
-                <td>{mycourse.course1}</td>
-                <td>{mycourse.course2}</td>
-                <td>{mycourse.course3}</td>
-                <td>{mycourse.course4}</td>
-                <td>{mycourse.course5}</td>
-                <td><button className='addButton'>Drop Course</button></td>
+              <tr key={mycourse.id}>
+                <td>{mycourse.courses}</td>
             </tr>
             )}
       </tbody>
@@ -141,21 +132,27 @@ export class getTestData extends Component {
     async getCourseData() {
            const response = await fetch('/course');
             const data = await response.json();
-           this.setState({ courses: data, loading: false });
+            const response2 = await fetch('/mycourse');
+            const data2 = await response2.json();
+           this.setState({ courses: data,  mycourses: data2, loading: false });
            
          }
 
-    async getMyCourseData(){
+    /*async getMyCourseData(){
         // axios
-        axios.get('/mycourses')
+        axios.get('/mycourse')
         .then(response => {
             console.log(response.data);
             const data = response.json();
-            this.setState({ courses: data, loading:false });
+            this.setState({ mycourses: data, loading: false });
           }, error => {
             console.log(error);
           });
 
-                  }
+          const response = await fetch('/mycourse');
+            const data = await response.json();
+           this.setState({ mycourses: data, loading: false });
+
+                  }*/
 
 }

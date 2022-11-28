@@ -246,7 +246,6 @@ export class StudentSchedule extends Component {
     </div>
     );
   }
-
 }
 
 export default StudentSchedule;
