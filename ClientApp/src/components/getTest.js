@@ -34,49 +34,19 @@ const List = styled.div`
   justify-content: center; 
   flex-flow: row wrap; 
 `;
+ 
 
 export class getTestData extends Component {
 
     constructor(props) {
       super(props);
       this.state = {courses: [], mycourses: [], loading: false}; 
-
     }
 
-    myCourse = {
-      status:"",
-      thisCourse: "",
-      resource: "",
-      isOpen: "",
-      start: "",
-      end: "",
-    }
-    handleSubmit = () => {
-
-     /* let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);*/
-
-      const { thisCourse, resource, isOpen, start, end } = this.myCourse;
-
-      axios.post(`/mycourse`, {
-          courses: {thisCourse},
-          resource: {resource},
-          isOpen: {isOpen},
-          start: {start},
-          end: {end},
-      })
-      .then(response => {
-          this.setmyCourse({ status: response.status });
-      }, error => {
-        console.log(error);
-      })
-  }
 
     componentDidMount() {
       this.getCourseData();
       //this.getMyCourseData();
-
         }
 
    static renderCoursesTable(courses,mycourses){
@@ -104,12 +74,12 @@ export class getTestData extends Component {
           <tbody>
             {courses.map(course =>
               <tr key={course.text}>
-                <td value={course.text} name="thisCourse">{course.text}</td>
-                <td value={course.isOpen} name="isOpen">{course.isOpen}</td>
-                <td value={course.resource} name="resource">{course.resource}</td>
-                <td value={course.start} name="start">{course.start}</td>
-                <td value={course.end} name="end">{course.end}</td>
-                <td><button className='addButton'name="submit" value="Submit" onClick={this.handleSubmit}>Add</button></td>
+                <td value={course.text} name="course_text">{course.text}</td>
+                <td value={course.isOpen} name="course_isOpen">{course.isOpen}</td>
+                <td value={course.resource} name="course_resource">{course.resource}</td>
+                <td value={course.start} name="course_start">{course.start}</td>
+                <td value={course.end} name="course_end">{course.end}</td>
+                <td><button className='addButton' name="submit" value="Submit" onClick={this.handleSubmit}>Add</button></td>
               </tr>
             )}
           </tbody>
@@ -119,25 +89,25 @@ export class getTestData extends Component {
         </div>
         <div className="mycoursesTable">
         <p className='p-3 text-center'>Your course schedule:</p>
-        <table className='table table gold' aria-labelledby="tabelLabel">
+        <table className='table1 table gold' aria-labelledby="tabelLabel">
       <thead>
         <tr>
           <th>Course Name:</th>
+          <th>Day:</th>
           <th>Time Start:</th>
           <th>Time End:</th>
-          <th>Day:</th>
           <th>Options:</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
       {mycourses.map(mycourse =>
-              <tr key={mycourse.id}>
+              <tr key={mycourse.courses}>
                 <td>{mycourse.courses}</td>
+                <td>{mycourse.resource}</td>
                 <td>{mycourse.start}</td>
                 <td>{mycourse.end}</td>
-                <td>{mycourse.resource}</td>
-                <td><button className='addButton'name="submit" value="Submit" onClick={this.handleSubmit}>Drop</button></td>
+                <td><button className='addButton'name="submit" value="Submit">Drop</button></td>
             </tr>
             )}
       </tbody>
@@ -150,7 +120,6 @@ export class getTestData extends Component {
 
    
     render() {
-      const { status, thisCourse,resource, isOpen, start, end } = this.myCourse;
       let contents = this.state.loading
         ? <p><em>Loading...</em></p>
         : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);
@@ -178,6 +147,26 @@ export class getTestData extends Component {
            this.setState({ courses: data,  mycourses: data2, loading: false });
            
          }
+    async handleSubmit() {
+      const [status, setStatus] = useState('');
+      const [course_text, setCourseText] = useState("");
+      const [course_resource, setCourseResource] = useState("");
+      const [course_start, setCourseStart] = useState(""); 
+          console.log("clicked add");
+              axios.post(`/mycourse`, {
+                  course_text: {course_text},
+                  course_resource: {course_resource},
+                  course_start: {course_start}
+              })
+              .then(response => {
+                  setStatus(response.status);
+              })
+              .catch(error => {
+                this.setState({ errorMessage: error.message });
+            });
+        //  }
+        }
+     
 
     /*async getMyCourseData(){
         // axios

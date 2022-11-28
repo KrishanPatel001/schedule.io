@@ -8,5 +8,14 @@ namespace Schedule.Entities
 
         public string Courses { get; set; }
 
+        public string Resource { get; set; }
+
+        public int IsOpen { get; set; }
+
+        public string Start { get; set; }
+
+        public string End { get; set; }
+
+
     }
 }
