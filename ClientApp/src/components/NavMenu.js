@@ -50,11 +50,40 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink 
                     tag={Link} 
-                    to="/sign-in#/sign-in"
+                    to="/Student-Page"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    Student
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/Sign-in"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
                     Sign In
                   </NavLink>
+                  </NavItem>
+                  <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/Get-testData"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    GetTest
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink 
+                    tag={Link} 
+                    to="/Fetch-mycourses"
+                    activeclassname="pageSwitcherItem-active"
+                    className="pageSwitcherItem">
+                    My Courses
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                 </NavItem>
               </ul>
             </Collapse>

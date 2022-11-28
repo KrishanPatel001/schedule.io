@@ -16,10 +16,12 @@ namespace Schedule.Helpers
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to mysql with connection string from app settings
-            var connectionString = Configuration.GetConnectionString("LocalDatabase");
+            var connectionString = Configuration.GetConnectionString("WebApiDatabase");
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> user { get; set; }
+        public DbSet<Course> course { get; set; }
+        public DbSet<MyCourse> mycourse { get; set; }
     }
 }
