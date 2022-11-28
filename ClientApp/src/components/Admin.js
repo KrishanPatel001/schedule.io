@@ -101,8 +101,8 @@ export class getTestData extends Component {
         <div className='studentPage'>
         <div style={styles.wrap}>
         <div>
-          <h1 id="tabelLabel" >Welcome, Student</h1>
-          <p>View and Edit your course schedule below</p>
+          <h1 id="tabelLabel" >Welcome, Admin</h1>
+          <p>Here is the list of courses.</p>
           {contents}
         </div>
        </div>
