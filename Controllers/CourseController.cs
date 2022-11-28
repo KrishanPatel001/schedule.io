@@ -27,10 +27,10 @@ namespace Schedule.Controllers
             return Ok(course);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        [HttpGet("{text}")]
+        public IActionResult GetByText(string text)
         {
-            var course = _courseService.GetById(id);
+            var course = _courseService.GetByText(text);
             return Ok(course);
         }
 

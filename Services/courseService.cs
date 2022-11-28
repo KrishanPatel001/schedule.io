@@ -11,7 +11,7 @@ namespace Schedule.Services
     public interface ICourseService
     {
         IEnumerable<Course> GetAll();
-        Course GetById(int id);
+        Course GetByText(string text);
         void Create(CreateCourse model);
         void Update(int id, UpdateCourse model);
         void Delete(int id);
@@ -35,9 +35,9 @@ namespace Schedule.Services
             return _context.course;
         }
 
-        public Course GetById(int id)
+        public Course GetByText(string text)
         {
-            return getCourse(id);
+            return getCourseByText(text);
         }
 
         public void Create(CreateCourse model)
@@ -88,6 +88,12 @@ namespace Schedule.Services
         private Course getCourse(int id)
         {
             var course = _context.course.Find(id);
+            if (course == null) throw new KeyNotFoundException("Course not found");
+            return course;
+        }
+        private Course getCourseByText(string text)
+        {
+            var course = _context.course.Find(text);
             if (course == null) throw new KeyNotFoundException("Course not found");
             return course;
         }

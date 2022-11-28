@@ -46,7 +46,7 @@ export class FetchMyCourses extends Component {
      
     componentDidMount() {
       this.FetchMyCourseData();
-        }
+      }
 
         static renderMyCoursesTable(mycourses){
           return (
@@ -67,7 +67,7 @@ export class FetchMyCourses extends Component {
           </thead>
           <tbody>
           {mycourses.map(mycourse =>
-              <tr key={mycourses.Id}>
+              <tr key={mycourse.id}>
                 <td>{mycourse.course1}</td>
                 <td>{mycourse.course2}</td>
                 <td>{mycourse.course3}</td>
