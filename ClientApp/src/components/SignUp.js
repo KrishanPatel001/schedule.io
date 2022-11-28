@@ -26,6 +26,9 @@ const SignUpForm = () => {
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
+  const [userType, setUserType] = useState('');
+  const [validUserType, setValidUserType] = useState(false);
+
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -47,6 +50,10 @@ const SignUpForm = () => {
   }, [email])
 
   useEffect(() => {
+    setValidUserType(userType !== '');
+  }, [userType])
+
+  useEffect(() => {
     setErrMsg('');
   }, [user, pwd, email])
 
@@ -55,6 +62,7 @@ const SignUpForm = () => {
     const NameTest = NameRegex.test(user);
     const PassTest = PassRegex.test(pwd);
     const EmailTest = EmailRegex.test(email);
+    const TypeTest = userType !== '';
     if (!NameTest || !PassTest || !EmailTest) {
       setErrMsg("Invalid Info");
       return;
@@ -64,6 +72,7 @@ const SignUpForm = () => {
         name: user,
         email: email,
         password: pwd,
+        type: userType
       };
       const response = await axios.post("/user", account);
       console.log(response?.data);
@@ -72,7 +81,9 @@ const SignUpForm = () => {
       setSuccess(true);
       setUser('');
       setPwd('');
+      setUserType('');
       setEmail('');
+      setUserType('');
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -172,10 +183,10 @@ const SignUpForm = () => {
                   Sign Up As
               </label>
 
-              <input type="radio" id="Admin" name="userType"/>
+              <input type="radio" id="Admin" name="userType" value="Admin" onChange={(e) => setUserType(e.target.value)}/>
                   <label for="Admin">Admin</label><br></br>
                   
-                <input type="radio" id="Student" name="userType"/>
+                <input type="radio" id="Student" name="userType" value="Student" onChange={(e) => setUserType(e.target.value)}/>
                   <label for="Student">Student</label><br></br>
               </div>
               <div className="formField">

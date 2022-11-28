@@ -50,7 +50,14 @@ namespace Schedule.Services
             // map model to new user object
             var user = _mapper.Map<User>(model);
 
-            user.Role = Role.User;
+            if (model.Role == Role.Student)
+            {
+                user.Role = Role.Student;
+            }
+            else if (model.Role == Role.Advisor)
+            {
+                user.Role = Role.Advisor;
+            }
             // hash password
             user.Password = BCryptNet.HashPassword(model.Password, 10);
 

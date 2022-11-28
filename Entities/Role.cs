@@ -2,7 +2,7 @@ namespace Schedule.Entities
 {
     public enum Role
     {
-        Admin,
+        Student,
         Advisor,
         User
     }
