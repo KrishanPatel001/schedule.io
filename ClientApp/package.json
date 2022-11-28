@@ -22,6 +22,7 @@
     "react-table": "^7.8.0",
     "react-week-calendar": "^0.1.3",
     "reactstrap": "^9.1.4",
+    "react-table-scrollbar": "0.1.11",
     "styled-components": "^5.3.6",
     "reactstrap": "^9.1.4",
     "yup": "^0.32.11"
