@@ -85,24 +85,7 @@ export class getTestData extends Component {
         </TableScrollbar>
         </div>
         </div>
-        <div className="mycoursesTable">
-        <p className='p-3 text-center'>Your course schedule:</p>
-        <table className='table table gold' aria-labelledby="tabelLabel">
-      <thead>
-        <tr>
-          <th>Course Name:</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      {mycourses.map(mycourse =>
-              <tr key={mycourse.id}>
-                <td>{mycourse.courses}</td>
-            </tr>
-            )}
-      </tbody>
-    </table>
-    </div>
+
         </div>
         </div>
       );

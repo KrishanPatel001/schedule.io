@@ -7,6 +7,7 @@ import SignIn from "./components/SignInPage";
 import  StudentSchedule from './components/StudentPage';
 import SignInForm from "./components/SignIn";
 import { getTestData } from "./components/getTest";
+import { getTestData } from "./components/Admin";
 import { FetchMyCourses } from "./components/FetchMyCourses";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
