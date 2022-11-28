@@ -68,11 +68,7 @@ export class FetchMyCourses extends Component {
           <tbody>
           {mycourses.map(mycourse =>
               <tr key={mycourse.id}>
-                <td>{mycourse.course1}</td>
-                <td>{mycourse.course2}</td>
-                <td>{mycourse.course3}</td>
-                <td>{mycourse.course4}</td>
-                <td>{mycourse.course5}</td>
+                <td>{mycourse.courses}</td>
                 <td><button className='addButton'>Drop Course</button></td>
             </tr>
             )}

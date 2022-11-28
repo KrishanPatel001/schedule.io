@@ -43,8 +43,8 @@ namespace Schedule.Services
         public void Create(CreateMyCourse model)
         {
             // validate
-            if (_context.mycourse.Any(x => x.Course1 == model.Course1))
-                throw new AppException("Course with name '" + model.Course1 + "' already exists");
+            if (_context.mycourse.Any(x => x.Courses == model.Courses))
+                throw new AppException("Course with name '" + model.Courses + "' already exists");
 
             // map model to new course object
             var mycourse = _mapper.Map<MyCourse>(model);
@@ -63,8 +63,8 @@ namespace Schedule.Services
             var mycourse = getMyCourse(id);
 
             // validate
-            if (model.Course1 != mycourse.Course1 && _context.mycourse.Any(x => x.Course1 == model.Course1))
-                throw new AppException("Course with the name '" + model.Course1 + "' already exists");
+            if (model.Courses != mycourse.Courses && _context.mycourse.Any(x => x.Courses == model.Courses))
+                throw new AppException("Course with the name '" + model.Courses + "' already exists");
 
             // hash password if it was entered
            // if (!string.IsNullOrEmpty(model.Password))

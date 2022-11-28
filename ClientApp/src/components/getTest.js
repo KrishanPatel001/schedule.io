@@ -91,22 +91,13 @@ export class getTestData extends Component {
       <thead>
         <tr>
           <th>Course Name:</th>
-          <th>Time Start:</th>
-          <th>Time End:</th>
-          <th>Day:</th>
-          <th>Options:</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-      {mycourses.slice(0,1).map(mycourse =>
+      {mycourses.map(mycourse =>
               <tr key={mycourse.id}>
-                <td>{mycourse.course1}</td>
-                <td>{mycourse.course2}</td>
-                <td>{mycourse.course3}</td>
-                <td>{mycourse.course4}</td>
-                <td>{mycourse.course5}</td>
-
+                <td>{mycourse.courses}</td>
             </tr>
             )}
       </tbody>
