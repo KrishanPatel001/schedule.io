@@ -43,10 +43,40 @@ export class getTestData extends Component {
 
     }
 
-     
+    myCourse = {
+      status:"",
+      thisCourse: "",
+      resource: "",
+      isOpen: "",
+      start: "",
+      end: "",
+    }
+    handleSubmit = () => {
+
+     /* let contents = this.state.loading
+      ? <p><em>Loading...</em></p>
+      : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);*/
+
+      const { thisCourse, resource, isOpen, start, end } = this.myCourse;
+
+      axios.post(`/mycourse`, {
+          courses: {thisCourse},
+          resource: {resource},
+          isOpen: {isOpen},
+          start: {start},
+          end: {end},
+      })
+      .then(response => {
+          this.setmyCourse({ status: response.status });
+      }, error => {
+        console.log(error);
+      })
+  }
+
     componentDidMount() {
       this.getCourseData();
       //this.getMyCourseData();
+
         }
 
    static renderCoursesTable(courses,mycourses){
@@ -64,19 +94,21 @@ export class getTestData extends Component {
           <thead>
             <tr>
               <th>Course Name:</th>
+              <th>Open: </th>
+              <th>Day:</th>
               <th>Time Start:</th>
               <th>Time End:</th>
-              <th>Day:</th>
               <th>Options:</th>
             </tr>
           </thead>
           <tbody>
             {courses.map(course =>
               <tr key={course.text}>
-                <td>{course.text}</td>
-                <td>{course.start}</td>
-                <td>{course.end}</td>
-                <td>{course.resource}</td>
+                <td value={course.text} name="thisCourse">{course.text}</td>
+                <td value={course.isOpen} name="isOpen">{course.isOpen}</td>
+                <td value={course.resource} name="resource">{course.resource}</td>
+                <td value={course.start} name="start">{course.start}</td>
+                <td value={course.end} name="end">{course.end}</td>
                 <td><button className='addButton'name="submit" value="Submit" onClick={this.handleSubmit}>Add</button></td>
               </tr>
             )}
@@ -91,6 +123,10 @@ export class getTestData extends Component {
       <thead>
         <tr>
           <th>Course Name:</th>
+          <th>Time Start:</th>
+          <th>Time End:</th>
+          <th>Day:</th>
+          <th>Options:</th>
           <th></th>
         </tr>
       </thead>
@@ -98,7 +134,10 @@ export class getTestData extends Component {
       {mycourses.map(mycourse =>
               <tr key={mycourse.id}>
                 <td>{mycourse.courses}</td>
-
+                <td>{mycourse.start}</td>
+                <td>{mycourse.end}</td>
+                <td>{mycourse.resource}</td>
+                <td><button className='addButton'name="submit" value="Submit" onClick={this.handleSubmit}>Drop</button></td>
             </tr>
             )}
       </tbody>
@@ -111,6 +150,7 @@ export class getTestData extends Component {
 
    
     render() {
+      const { status, thisCourse,resource, isOpen, start, end } = this.myCourse;
       let contents = this.state.loading
         ? <p><em>Loading...</em></p>
         : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);
