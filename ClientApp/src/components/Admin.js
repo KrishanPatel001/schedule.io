@@ -92,7 +92,7 @@ export class getAdminCourses extends Component {
     render() {
       let contents = this.state.loading
         ? <p><em>Loading...</em></p>
-        : getTestData.renderCoursesTable(this.state.courses, this.state.mycourses);
+        : getAdminCourses.renderCoursesTable(this.state.courses, this.state.mycourses);
      /* let mycontents = this.state.loading
         ? <p><em>Loading...</em></p>
         : getTestData.renderMyCoursesTable(this.state.mycourses);*/
