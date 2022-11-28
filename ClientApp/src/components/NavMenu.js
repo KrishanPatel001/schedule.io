@@ -63,7 +63,7 @@ export class NavMenu extends Component {
                     to="/Sign-in"
                     activeclassname="pageSwitcherItem-active"
                     className="pageSwitcherItem">
-                    Admin View Courses
+                    Admin
                   </NavLink>
                   </NavItem>
                 <NavItem>
