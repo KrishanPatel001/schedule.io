@@ -55,8 +55,6 @@ export class getAdminCourses extends Component {
         <div style={styles.wrap}>
             <div className="container">
             <h3 className="p-3 text-center">Spring&nbsp;2023&nbsp;Courses</h3>
-            <div className="searchBar">
-            <SearchBar />
             </div>
             <TableScrollbar  height="540px">
         <table className='table table gold' aria-labelledby="tabelLabel">
@@ -66,7 +64,6 @@ export class getAdminCourses extends Component {
               <th>Time Start:</th>
               <th>Time End:</th>
               <th>Day:</th>
-              <th>Options:</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +73,6 @@ export class getAdminCourses extends Component {
                 <td>{course.start}</td>
                 <td>{course.end}</td>
                 <td>{course.resource}</td>
-                <td><button className='addButton'>Add</button></td>
               </tr>
             )}
           </tbody>
