@@ -35,7 +35,7 @@ const List = styled.div`
   flex-flow: row wrap; 
 `;
 
-export class getTestData extends Component {
+export class getAdminCourses extends Component {
 
     constructor(props) {
       super(props);
